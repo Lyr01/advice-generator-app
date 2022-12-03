@@ -1,7 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+:root {
+	--light-cyan: hsl(193, 38%, 86%);
+	--neon-green: hsl(150, 100%, 66%);
+	--grayish-blue: hsl(217, 19%, 38%);
+	--dark-grayish-blue: hsl(217, 19%, 24%);
+	--dark-blue: hsl(218, 23%, 16%);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+	margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+	height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+body {
+	font-family: "Manrope", sans-serif;
+	background-color: var(--dark-blue);
+}
+
+#root,
+.App {
+	width: 100%;
+	min-height: 100vh;
+}
+
+.App {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.container {
+	display: flex;
+	width: 33.75rem;
+	height: 20.75rem;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 3rem;
+	border-radius: 10px;
+	background-color: var(--dark-grayish-blue);
+	position: relative;
+}
+
+.advice-id {
+	font-size: 10px;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+	color: var(--neon-green);
+	padding-top: 3.25rem;
+}
+
+.advice-content {
+	font-size: 20px;
+	text-align: center;
+	color: var(--light-cyan);
+	padding-top: 2.25rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+
+.divider {
+	position: absolute;
+	bottom: 72px;
+	width: 100%;
+	height: 16px;
+	background-image: url("./images/pattern-divider-desktop.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.logo {
+	position: absolute;
+	bottom: -10%;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background-color: var(--neon-green);
+	background-image: url("./images/icon-dice.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+
+.logo:hover {
+	box-shadow: 0px 0px 40px 2px var(--neon-green);
+}
+
 .attribution {
+	color: var(--light-cyan);
 	font-size: 11px;
 	text-align: center;
 }
 .attribution a {
-	color: hsl(228, 45%, 44%);
+	color: var(--neon-green);
+}
+
+@media only screen and (max-width: 542px) {
+	.container {
+		width: 21.5rem;
+		height: 20.75rem;
+	}
+
+	.advice-id {
+		padding-top: 2.75rem;
+	}
+
+	.advice-content {
+		padding-top: 2.25rem;
+		padding-left: 1.75rem;
+		padding-right: 1.75rem;
+		padding-bottom: 1.5rem;
+	}
+
+	.divider {
+		background-image: url("./images/pattern-divider-mobile.svg");
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	.App {
+		flex-direction: row;
+	}
+
+	.container {
+		height: fit-content;
+	}
+
+	.divider {
+		background-image: none;
+	}
+
+	.logo {
+		bottom: -25px;
+	}
 }
